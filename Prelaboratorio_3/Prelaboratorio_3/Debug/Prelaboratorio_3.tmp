@@ -10,6 +10,7 @@
  <SOURCE_FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\Prelaboratorio_3\Prelaboratorio_3\main.asm</SOURCE_FILE>
  <INCLUDED_FILES>
   <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m328Pdef.inc</FILE>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\M328PDEF.inc</FILE>
  </INCLUDED_FILES>
  <OBJECT_FILES>
   <FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\Prelaboratorio_3\Prelaboratorio_3\Debug\Prelaboratorio_3.obj</FILE>
@@ -22,6 +23,12 @@
   <FILE>Prelaboratorio_3.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <start><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\Prelaboratorio_3\Prelaboratorio_3\main.asm</FILE><LINE>10</LINE></start>
+  <RESET><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\Prelaboratorio_3\Prelaboratorio_3\main.asm</FILE><LINE>17</LINE></RESET>
+  <PCINT_ISR><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\Prelaboratorio_3\Prelaboratorio_3\main.asm</FILE><LINE>52</LINE></PCINT_ISR>
+  <MAIN><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\Prelaboratorio_3\Prelaboratorio_3\main.asm</FILE><LINE>45</LINE></MAIN>
+  <INCREMENTAR><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\Prelaboratorio_3\Prelaboratorio_3\main.asm</FILE><LINE>61</LINE></INCREMENTAR>
+  <DECREMENTAR><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\Prelaboratorio_3\Prelaboratorio_3\main.asm</FILE><LINE>71</LINE></DECREMENTAR>
+  <NO_RESET><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\Prelaboratorio_3\Prelaboratorio_3\main.asm</FILE><LINE>67</LINE></NO_RESET>
+  <NO_DECREMENTA><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\Prelaboratorio_3\Prelaboratorio_3\main.asm</FILE><LINE>75</LINE></NO_DECREMENTA>
  </LABELS>
 </ASSEMBLER_INFO>
