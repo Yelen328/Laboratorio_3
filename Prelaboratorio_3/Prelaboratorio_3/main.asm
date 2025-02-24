@@ -5,22 +5,20 @@
 ; Author : yelena Cotzojay
 
 .include "M328PDEF.inc"
-.cseg
-.dseg
-CONTADOR: .BYTE 1	//variable para almacenar el contador
-.ORG	0x00
-	RJMP	RESET	//Vector Reset
-.ORG	PCI1addr
+.ORG	0x0000
+	RJMP	SETUP	//Vector Reset
+.ORG	0x0008
 	RJMP	PCINT_ISR	//vector de interrupción PCINT1
-
-
-//Inicio del programa
-RESET:
+.cseg
+.def CONTADOR= R20	//variable para almacenar el contador
 //Stack
 	LDI		R16, LOW(RAMEND)
 	OUT		SPL, R16
 	LDI		R16, HIGH(RAMEND)
 	OUT		SPH, R16
+
+//Inicio del programa
+SETUP:
 
 	;PORTC COMO ENTRADA CON PULL-UP HABILIDATO 
 	LDI		R16, 0x00
@@ -42,11 +40,10 @@ RESET:
 	SEI              ; Habilita interrupciones globales
 
 	LDI R17, 0x00         ; Inicializar contador en 0
-    STS CONTADOR, R17
+   
 
-MAIN:
-	LDS		R16, CONTADOR 
-	OUT		PORTB, R16
+MAIN: 
+	OUT		PORTB, CONTADOR
 	RJMP	MAIN
 
 //========================================================
@@ -62,23 +59,21 @@ PCINT_ISR:
 
 //SUBRUTINAS
 INCREMENTAR:
-	LDS		R16, CONTADOR
-	INC		R16
-	CPI		R16, 0x10	//Si llega a 16 reiniciar a 0
-	BRLO	NO_RESET
-	LDI		R16, 0x00
+	INC		CONTADOR
+	CPI		CONTADOR, 0x10	//Si llega a 16 reiniciar a 0
+	BREQ	NO_RESET
+	LDI		CONTADOR, 0x00
 
 NO_RESET:
-	STS		PORTB, CONTADOR
+	OUT		PORTB, CONTADOR
 	RET
 
 DECREMENTAR:
-	LDS		R16, CONTADOR
 	CPI		CONTADOR,0x00	//Comparar si es 0
 	BREQ	NO_DECREMENTA
 	DEC		CONTADOR	//Decrementar
 NO_DECREMENTA:
-	STS	PORTB, CONTADOR
+	OUT	PORTB, CONTADOR
 	RET
 
 

@@ -23,7 +23,7 @@
   <FILE>Prelaboratorio_3.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <RESET><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\Prelaboratorio_3\Prelaboratorio_3\main.asm</FILE><LINE>17</LINE></RESET>
+  <SETUP><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\Prelaboratorio_3\Prelaboratorio_3\main.asm</FILE><LINE>21</LINE></SETUP>
   <PCINT_ISR><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\Prelaboratorio_3\Prelaboratorio_3\main.asm</FILE><LINE>52</LINE></PCINT_ISR>
   <MAIN><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\Prelaboratorio_3\Prelaboratorio_3\main.asm</FILE><LINE>45</LINE></MAIN>
   <INCREMENTAR><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\Prelaboratorio_3\Prelaboratorio_3\main.asm</FILE><LINE>61</LINE></INCREMENTAR>
