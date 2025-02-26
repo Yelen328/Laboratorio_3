@@ -1,0 +1,44 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\postLaboratorio\postLaboratorio\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\postLaboratorio\postLaboratorio\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m328Pdef.inc</FILE>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\M328PDEF.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\postLaboratorio\postLaboratorio\Debug\postLaboratorio.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>postLaboratorio.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>postLaboratorio.map</FILE>
+  <FILE>postLaboratorio.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <SETUP><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\postLaboratorio\postLaboratorio\main.asm</FILE><LINE>29</LINE></SETUP>
+  <PCINT_ISR><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\postLaboratorio\postLaboratorio\main.asm</FILE><LINE>161</LINE></PCINT_ISR>
+  <INTERRUP_TIMER><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\postLaboratorio\postLaboratorio\main.asm</FILE><LINE>169</LINE></INTERRUP_TIMER>
+  <INIT_TMR0><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\postLaboratorio\postLaboratorio\main.asm</FILE><LINE>104</LINE></INIT_TMR0>
+  <ACTUALIZAR_DISPLAY><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\postLaboratorio\postLaboratorio\main.asm</FILE><LINE>111</LINE></ACTUALIZAR_DISPLAY>
+  <MAIN><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\postLaboratorio\postLaboratorio\main.asm</FILE><LINE>82</LINE></MAIN>
+  <INCREMENTAR><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\postLaboratorio\postLaboratorio\main.asm</FILE><LINE>86</LINE></INCREMENTAR>
+  <NO_RESET><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\postLaboratorio\postLaboratorio\main.asm</FILE><LINE>92</LINE></NO_RESET>
+  <DECREMENTAR><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\postLaboratorio\postLaboratorio\main.asm</FILE><LINE>96</LINE></DECREMENTAR>
+  <NO_DECREMENTA><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\postLaboratorio\postLaboratorio\main.asm</FILE><LINE>100</LINE></NO_DECREMENTA>
+  <TABLA><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\postLaboratorio\postLaboratorio\main.asm</FILE><LINE>194</LINE></TABLA>
+  <DELAY><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\postLaboratorio\postLaboratorio\main.asm</FILE><LINE>139</LINE></DELAY>
+  <DECENAS><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\postLaboratorio\postLaboratorio\main.asm</FILE><LINE>133</LINE></DECENAS>
+  <SUB_DELAY1><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\postLaboratorio\postLaboratorio\main.asm</FILE><LINE>141</LINE></SUB_DELAY1>
+  <SUB_DELAY2><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\postLaboratorio\postLaboratorio\main.asm</FILE><LINE>146</LINE></SUB_DELAY2>
+  <SUB_DELAY3><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\postLaboratorio\postLaboratorio\main.asm</FILE><LINE>151</LINE></SUB_DELAY3>
+  <FIN_UNIDADES><FILE>C:\Users\yelen\OneDrive\Documentos\Laboratorio_3\postLaboratorio\postLaboratorio\main.asm</FILE><LINE>187</LINE></FIN_UNIDADES>
+ </LABELS>
+</ASSEMBLER_INFO>

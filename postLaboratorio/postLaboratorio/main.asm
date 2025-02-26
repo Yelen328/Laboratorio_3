@@ -1,14 +1,14 @@
+; Laboratorio_3.asm
 ;
-; postLaboratorio.asm
+; Created: 21/2/2025 17:11:24
+; Author : yelena Cotzojay
 ;
-; Created: 24/2/2025 17:48:38
-; Author : yelen
-;
-
-
-; Replace with your application code
 .include "M328PDEF.inc"
 .DEF	DISPLAY=R21 
+.def	DISPLAY_DECENAS=R23
+.def	DISPLAY_UNIDADES=R24
+.def	CONTEO_DDECENAS=R25
+
 .ORG	0x0000
 	RJMP	SETUP	//Vector Reset
 
@@ -60,6 +60,8 @@ SETUP:
 	//Iniciar el display en 0s
 	LDI		DISPLAY, 0x00	//Iniciar en 0
 	CALL	ACTUALIZAR_DISPLAY	
+	LDI		CONTEO_DDECENAS, 0x00
+
 
 	//configuración de interrupciones pin change
 	LDI		R16,	(1 << PCIE1)			//Encender el bit PCIE1
@@ -79,17 +81,6 @@ SETUP:
    
 MAIN: 	
 	RJMP	MAIN
-
-//========================================================
-//RUTINA DE INTERRUPCIÓN
-//========================================================
-PCINT_ISR:
-	IN		R18, PINC	//Lee el estado actual de los pines
-	SBRS	R18,0	//Si el bit 0 está en alto, incrementar
-	CALL	INCREMENTAR
-	SBRS	R18,1		//Si el bit 1 está en algo, decrementar
-	CALL	DECREMENTAR
-	RETI	//Retornar a la interrupción
 
 //SUBRUTINAS
 INCREMENTAR:
@@ -118,28 +109,82 @@ INIT_TMR0:
 	RET
 
 ACTUALIZAR_DISPLAY:
+	//UNIDADES
+	SBI		PORTB, 4	//Encender el bit 4
+	CBI		PORTB, 5	//Apagar el bit 5
 	LDI     ZH, HIGH(TABLA<<1)
     LDI     ZL, LOW(TABLA<<1)
-	ADD		ZL, DISPLAY
+	ADD		ZL, DISPLAY_UNIDADES
 	LPM		R23, Z
 	OUT		PORTD, R23
+	CALL DELAY
+
+	//DECENAS
+	CBI		PORTB, 4	//Apagar el bit 4	(segundos)
+	SBI		PORTB, 5	//Encender el bit 5	(Decenas)
+	LDI     ZH, HIGH(TABLA<<1)
+    LDI     ZL, LOW(TABLA<<1)
+	ADD		ZL, CONTEO_DDECENAS
+	LPM		R23, Z
+	OUT		PORTD, R23
+	CALL DELAY
+
 	RET
+DECENAS:
+	CLR	DISPLAY_UNIDADES	
+	INC	CONTEO_DDECENAS
+	RET
+
+
+DELAY:
+	LDI R18, 0xFF
+SUB_DELAY1:
+	DEC R18
+	CPI R18, 0
+	BRNE SUB_DELAY1
+	LDI R18, 0xFF
+SUB_DELAY2:
+	DEC R18
+	CPI R18, 0
+	BRNE SUB_DELAY2
+	LDI R18, 0xFF
+SUB_DELAY3:
+	DEC R18
+	CPI R18, 0
+	BRNE SUB_DELAY3
+	RET
+
+
+//========================================================
+//RUTINA DE INTERRUPCIÓN
+//========================================================
+PCINT_ISR:
+	IN		R18, PINC	//Lee el estado actual de los pines
+	SBRS	R18,0	//Si el bit 0 está en alto, incrementar
+	CALL	INCREMENTAR
+	SBRS	R18,1		//Si el bit 1 está en algo, decrementar
+	CALL	DECREMENTAR
+	RETI	//Retornar a la interrupción
 
 INTERRUP_TIMER:
 	PUSH	R16
 	IN		R16, SREG
 	PUSH	R16
 
-	INC		R22 
-	CPI		R22, 100
-	BRNE	SALIR_ISR_TMR
-	CLR		R22
+	INC		R22			//cada vez que entra a la interrupción se incrementa R22
+	CPI		R22, 100	//se compara si llegó al 100 veces
+	BRNE	FIN_UNIDADES//branch if not equal, si no es igual salta
+	CLR		R22			//Si es igual a 100 se reinica el contador
+
+	INC		DISPLAY_UNIDADES	//Incrementar unidades
+	CPI		DISPLAY_UNIDADES, 10
+	BRNE	FIN_UNIDADES	//Branch if not equal -> si no es igual, salta
+	CALL	DECENAS	
+	CPI		CONTEO_DDECENAS, 6
+	BRNE	FIN_UNIDADES
+	CLR		CONTEO_DDECENAS		//Reiniciar decenas cuando llega a 6
 	
-	INC		DISPLAY
-	CPI		DISPLAY, 0x0A
-	BRNE	SALIR_ISR_TMR
-	LDI		DISPLAY, 0x00
-SALIR_ISR_TMR:
+FIN_UNIDADES:
 	CALL	ACTUALIZAR_DISPLAY
 	POP		R16
 	OUT		SREG, R16
@@ -148,8 +193,6 @@ SALIR_ISR_TMR:
 
 TABLA:
     .DB 0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x67
-
-
 
 
 
